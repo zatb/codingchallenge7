@@ -14,7 +14,24 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
         return;
     }
 
- // Append the submitted feedback to the display area upon successful form submission.
- feedbackDisplay.appendChild(feedbackItem);
+//Upon form submission, dynamically create elements that will display the customer’s name, selected rating, and comments in the designated feedback display area.
+const feedbackDisplay = document.getElementById('feedbackDisplay');
+const feedbackItem = document.createElement('div');
+feedbackItem.className = 'feedback-item';
 
+const feedbackName = document.createElement('p');
+feedbackName.textContent = `Name: ${name}`;
+feedbackItem.appendChild(feedbackName);
+
+const feedbackRating = document.createElement('p');
+feedbackRating.textContent = `Rating: ${rating}`;
+feedbackItem.appendChild(feedbackRating);
+
+const feedbackComments = document.createElement('p');
+feedbackComments.textContent = `Comments: ${comments}`;
+feedbackItem.appendChild(feedbackComments);
+
+//Append the submitted feedback to the display area upon successful form submission.
+ feedbackDisplay.appendChild(feedbackItem);
+ 
 });
